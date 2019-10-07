@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
 
     for (let i=0; i<9; i++) {
 
@@ -51,6 +51,9 @@ window.onload = function() {
 
         if (allblock[0].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[8].innerHTML=='o') alert('Победитель O');
         if (allblock[2].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[6].innerHTML=='o') alert('Победитель O');
+
+
+        }
     }
 
-}
+
