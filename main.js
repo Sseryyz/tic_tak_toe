@@ -1,10 +1,28 @@
-window.onload = function () {
+const win = [
+  [0,1,2],
+  [3,4,5],
+  [6,7,8],
+  [0,3,6],
+  [1,4,7],
+  [2,5,8],
+  [0,4,8],
+  [2,4,6]
+  ];
 
-    for (let i=0; i<9; i++) {
+function findWinner() {
+    let allblock = document.getElementsByClassName('block');
 
-//      Создание блоков
-        document.getElementById('game').innerHTML+='<div class="block" id="block"></div>';
+    for (i = 0; i < win.length; i++) {
+        let a = win[i];
+        console.log(a);
+        if (allblock[a[0]].innerHTML=='x' && allblock[a[1]].innerHTML=='x' && allblock[a[2]].innerHTML=='x')
+            alert('Победитель X');
+        if (allblock[a[0]].innerHTML=='o' && allblock[a[1]].innerHTML=='o' && allblock[a[2]].innerHTML=='o')
+            alert('Победитель O');
     }
+}
+
+window.onload = function () {
 
     let move = 0;
 
@@ -25,35 +43,4 @@ window.onload = function () {
             findWinner();
         }
     }
-
-    function findWinner() {
-        let allblock = document.getElementsByClassName('block');
-//      Крестики
-        if (allblock[0].innerHTML=='x' && allblock[1].innerHTML=='x' && allblock[2].innerHTML=='x') alert('Победитель X');
-        if (allblock[3].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[5].innerHTML=='x') alert('Победитель X');
-        if (allblock[6].innerHTML=='x' && allblock[7].innerHTML=='x' && allblock[8].innerHTML=='x') alert('Победитель X');
-
-        if (allblock[0].innerHTML=='x' && allblock[3].innerHTML=='x' && allblock[6].innerHTML=='x') alert('Победитель X');
-        if (allblock[1].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[7].innerHTML=='x') alert('Победитель X');
-        if (allblock[2].innerHTML=='x' && allblock[5].innerHTML=='x' && allblock[8].innerHTML=='x') alert('Победитель X');
-
-        if (allblock[0].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[8].innerHTML=='x') alert('Победитель X');
-        if (allblock[2].innerHTML=='x' && allblock[4].innerHTML=='x' && allblock[6].innerHTML=='x') alert('Победитель X');
-
-//      Нолики
-        if (allblock[0].innerHTML=='o' && allblock[1].innerHTML=='o' && allblock[2].innerHTML=='o') alert('Победитель O');
-        if (allblock[3].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[5].innerHTML=='o') alert('Победитель O');
-        if (allblock[6].innerHTML=='o' && allblock[7].innerHTML=='o' && allblock[8].innerHTML=='o') alert('Победитель O');
-
-        if (allblock[0].innerHTML=='o' && allblock[3].innerHTML=='o' && allblock[6].innerHTML=='o') alert('Победитель O');
-        if (allblock[1].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[7].innerHTML=='o') alert('Победитель O');
-        if (allblock[2].innerHTML=='o' && allblock[5].innerHTML=='o' && allblock[8].innerHTML=='o') alert('Победитель O');
-
-        if (allblock[0].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[8].innerHTML=='o') alert('Победитель O');
-        if (allblock[2].innerHTML=='o' && allblock[4].innerHTML=='o' && allblock[6].innerHTML=='o') alert('Победитель O');
-
-
-        }
-    }
-
-
+}
