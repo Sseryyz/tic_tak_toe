@@ -22,7 +22,8 @@
     height: 50px;
     background-color: lightgray;
     border: 0;
-    left: 42%;
+    left: 50%;
+    transform: translate(-50%);
     font-size: 20px;
     font-weight: bold;
 }
