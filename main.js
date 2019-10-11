@@ -27,9 +27,9 @@ function findWinner() {
         let symO = 'o';
 
         if (contain(a[0], symX) && contain(a[1], symX) && contain(a[2], symX))
-            alert('Победитель X');
+            setTimeout(function() { alert('Победитель X'); }, 100);
         if (contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO))
-            alert('Победитель O');
+            setTimeout(function() { alert('Победитель O'); }, 100);
     }
 }
 
