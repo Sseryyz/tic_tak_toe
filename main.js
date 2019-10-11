@@ -9,15 +9,22 @@ const win = [
   [2,4,6]
   ];
 
-function findWinner() {
-    let allblock = document.getElementsByClassName('block');
+function contain(index, sym) {
+    return document.getElementsByClassName('block')[index].innerHTML==sym
+}
 
-    for (i = 0; i < win.length; i++) {
+
+function findWinner() {
+
+    for (let i = 0; i < win.length; i++) {
         let a = win[i];
         console.log(a);
-        if (allblock[a[0]].innerHTML=='x' && allblock[a[1]].innerHTML=='x' && allblock[a[2]].innerHTML=='x')
+        let symX = 'x';
+        let symO = 'o';
+
+        if (contain(a[0], symX) && contain(a[1], symX) && contain(a[2], symX))
             alert('Победитель X');
-        if (allblock[a[0]].innerHTML=='o' && allblock[a[1]].innerHTML=='o' && allblock[a[2]].innerHTML=='o')
+        if (contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO))
             alert('Победитель O');
     }
 }
