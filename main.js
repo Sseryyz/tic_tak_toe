@@ -10,6 +10,10 @@ const win = [
   ];
 
 function contain(index, sym) {
+    if(index ===1 ) {
+        return ;
+    }
+
     return document.getElementsByClassName('block')[index].innerHTML==sym
 }
 
@@ -34,6 +38,13 @@ window.onload = function () {
     let move = 0;
 
     document.getElementById('game').onclick = function(event) {
+
+        if (event.target.innerHTML === 'x') {
+            return;
+        } else if (event.target.innerHTML === 'o') {
+            return;
+        }
+
 
         console.log(event);
 
