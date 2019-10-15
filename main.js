@@ -10,24 +10,21 @@ const win = [
   ];
 
 function contain(index, sym) {
-    if(index ===1 ) {
-        return ;
-    }
 
-    return document.getElementsByClassName('block')[index].innerHTML==sym
+    return document.getElementsByClassName('block')[index].innerHTML==sym;
 }
-
 
 function findWinner() {
 
     for (let i = 0; i < win.length; i++) {
         let a = win[i];
-        console.log(a);
         let symX = 'x';
         let symO = 'o';
 
         if (contain(a[0], symX) && contain(a[1], symX) && contain(a[2], symX))
             setTimeout(function() { alert('Победитель X'); }, 100);
+
+
         if (contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO))
             setTimeout(function() { alert('Победитель O'); }, 100);
     }
@@ -44,9 +41,6 @@ window.onload = function () {
         } else if (event.target.innerHTML === 'o') {
             return;
         }
-
-
-        console.log(event);
 
         if (event.target.className == 'block') {
 
