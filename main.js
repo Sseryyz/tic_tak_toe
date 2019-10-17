@@ -37,9 +37,16 @@ function findWinner() {
 }
 window.onload = function () {
 
+
+    let t = document.querySelector('#template');
+    t.content.querySelector('template');
+    document.body.appendChild(t.content.cloneNode(true));
+
+    // elem.insertAdjacentHTML("beforeend", 'block');
+
     let move = 0;
 
-    document.getElementById('game').onclick = function(event) {
+    let eventTarget = function(event) {
 
         if (event.target.innerHTML === 'x') {
             return;
@@ -47,7 +54,7 @@ window.onload = function () {
             return;
         }
 
-        if (event.target.className == 'block') {
+        if (event.target.className === 'block') {
 
             if (move%2==0) {
                 event.target.innerHTML = 'x';
@@ -55,9 +62,12 @@ window.onload = function () {
             else {
                 event.target.innerHTML = 'o';
             }
-            move++;
 
+            move++;
             findWinner();
         }
     }
+    let el = document.getElementById('game');
+
+    el.addEventListener("click", eventTarget);
 }
