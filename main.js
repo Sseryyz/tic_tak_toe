@@ -22,18 +22,19 @@ function findWinner() {
         let symO = 'o';
 
         if (contain(a[0], symX) && contain(a[1], symX) && contain(a[2], symX)) {
-            let result = setTimeout(confirm,100,'Победитель X! \nСыграть еще раз?')
-
+            setTimeout(function () {
+                if (alert('Победитель X\nНажмите ОК, чтобы сыграть еще раз.')){}
+                window.location.reload()
+            },100)
         }
-
-
-        if (contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO)) {
-            let result = setTimeout(confirm,100,'\'Победитель X! \\nСыграть еще раз?\'')
-
+        else if (contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO)) {
+            setTimeout(function () {
+                if (alert('Победитель O\nНажмите ОК, чтобы сыграть еще раз.')){}
+                window.location.reload()
+            },100)
         }
     }
 }
-
 window.onload = function () {
 
     let move = 0;
