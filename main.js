@@ -42,8 +42,6 @@ window.onload = function () {
     t.content.querySelector('template');
     document.body.appendChild(t.content.cloneNode(true));
 
-    // elem.insertAdjacentHTML("beforeend", 'block');
-
     let move = 0;
 
     let eventTarget = function(event) {
@@ -67,7 +65,7 @@ window.onload = function () {
             findWinner();
         }
     }
-    let el = document.getElementById('game');
+    let el = document.getElementsByClassName('game');
 
     el.addEventListener("click", eventTarget);
 }
