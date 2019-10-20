@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tic-tak-toe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="main.js"></script>
-</head>
-<body>
-    <template class="template" id="template">
-        <div class="game" id="game">
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-            <div class="block" id="block"></div>
-        </div>
-        <button class="btn" id="btn" onClick="location.reload()">Начать заново</button>
+  </head>
+  <body>
+    <template class="start" id="start">
+      <div class="welcomeScreen" id="welcomeScreen">
+        <h1 class="welcome" id="welcome">Welcome!</h1>
+
+        <form class="welcomeForm" id="welcomeForm" onsubmit="getFormValue(this)">
+          <label for="nameX">Игрок X:</label>
+          <input name="name" id="nameX" />
+          <label for="nameO">Игрок O:</label>
+          <input name="name" id="nameO" /> <br />
+          <input type="submit" value="Готово" id="submitBtn" />
+        </form>
+      </div>
     </template>
-</body>
+
+    <template class="game" id="game">
+      <div class="container" id="container">
+        <div class="game_field" id="game_field">
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+          <div class="block" id="block"></div>
+        </div>
+        <button class="btn" id="btn" onClick="location.reload()">
+          Начать заново
+        </button>
+      </div>
+    </template>
+  </body>
 </html>
