@@ -7,7 +7,7 @@
   background-color: lightgray;
   border: 5px solid gray;
   border-radius: 50px;
-  height: 250px;
+  height: 200px;
   width: 600px;
   position: absolute;
   top: 20px;
@@ -23,13 +23,13 @@
 }
 #welcomeForm {  
   position: absolute;
-  top: 150px;
+  top: 130px;
   left: 20px;
   font-size: 30px;
   font-weight: bold;
 }
-#nameX,
-#nameO {
+#playerX,
+#playerO {
   width: 130px;
   margin-right: 10px;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@
 }
 #submitBtn {
   position: absolute;
-  top: 130px;
+  top: 100px;
   width: 200px;
   height: 50px;
   background-color: lightgray;
@@ -52,9 +52,9 @@
 
 #container {
   position: relative;
-  top: 350px;
+  top: 300px;
 }
-#game_field {
+#gameField {
   margin: 50px auto;
   width: 420px;
   height: 420px;
@@ -72,7 +72,7 @@
   line-height: 140px;
   text-transform: uppercase;
 }
-#btn {
+#gameBtn {
   position: relative;
   width: 250px;
   height: 50px;

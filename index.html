@@ -11,19 +11,19 @@
       <div class="welcomeScreen" id="welcomeScreen">
         <h1 class="welcome" id="welcome">Welcome!</h1>
 
-        <form class="welcomeForm" id="welcomeForm" onsubmit="getFormValue(this)">
-          <label for="nameX">Игрок X:</label>
-          <input name="name" id="nameX" />
-          <label for="nameO">Игрок O:</label>
-          <input name="name" id="nameO" /> <br />
-          <input type="submit" value="Готово" id="submitBtn" />
+        <form method="get" id="welcomeForm" onsubmit="showGameTemplate(); return false;">
+          <label for="playerX">Игрок X:</label>
+          <input type="text" name="name" value="" id="playerX"/>
+          <label for="playerO">Игрок O:</label>
+          <input type="text" name="name" value="" id="playerO"/> <br />
+          <button type="submit" id="submitBtn">Готово</button>
         </form>
       </div>
     </template>
 
     <template class="game" id="game">
       <div class="container" id="container">
-        <div class="game_field" id="game_field">
+        <div class="gameField" id="gameField">
           <div class="block" id="block"></div>
           <div class="block" id="block"></div>
           <div class="block" id="block"></div>
@@ -34,7 +34,7 @@
           <div class="block" id="block"></div>
           <div class="block" id="block"></div>
         </div>
-        <button class="btn" id="btn" onClick="location.reload()">
+        <button class="btn" id="gameBtn" onClick="location.reload()">
           Начать заново
         </button>
       </div>
