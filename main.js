@@ -8,9 +8,35 @@ let startTemplate, startContent,
     gameTemplate, gameContent,
     findWinner,
     move,
-    eventTarget;
+    eventTarget,
+    hideStartTemplate,
+    showGameTemplate,
+    playerX, playerO;
 
-let showGameTemplate = function() {
+
+startTemplate = document.getElementById("start");
+startContent = startTemplate.content;
+document.body.prepend(startContent);
+
+document.getElementById("welcomeForm")
+    .addEventListener("submit", function(event) {
+      event.preventDefault();
+      playerX = document.getElementById('playerX').value;
+      playerO = document.getElementById('playerO').value;
+    });
+
+let goToGame = function() {
+  showGameTemplate();
+  hideStartTemplate();
+}
+let hideWelcomeScreen;
+let displaySetting;
+hideStartTemplate = function() {
+  hideWelcomeScreen = document.getElementById('welcomeScreen');
+  displaySetting = hideWelcomeScreen.style.display = "none";
+}
+
+showGameTemplate = function() {
   gameTemplate = document.getElementById("game");
   gameContent = gameTemplate.content;
   document.body.appendChild(gameContent);
@@ -18,33 +44,27 @@ let showGameTemplate = function() {
   document.getElementById("gameField").addEventListener("click", eventTarget);
 }
 
-
 const contain = function (index, sym) {
   return document.getElementsByClassName("block")[index].innerHTML === sym;
 }
-window.onload = function() {
 
-  startTemplate = document.getElementById("start");
-  startContent = startTemplate.content;
-  document.body.prepend(startContent);
+move = 0;
 
-  move = 0;
-  eventTarget = function(event) {
-    if (event.target.innerHTML === "x") {
-      return;
-    } else if (event.target.innerHTML === "o") {
-      return;
+eventTarget = function(event) {
+  if (event.target.innerHTML === "x") {
+    return;
+  } else if (event.target.innerHTML === "o") {
+    return;
+  }
+  if (event.target.className === "block") {
+    if (move % 2 === 0) {
+      event.target.innerHTML = "x";
+    } else {
+      event.target.innerHTML = "o";
     }
-    if (event.target.className === "block") {
-      if (move % 2 === 0) {
-        event.target.innerHTML = "x";
-      } else {
-        event.target.innerHTML = "o";
-      }
-      move++;
-      findWinner();
-    }
-  };
+    move++;
+    findWinner();
+  }
 };
 findWinner = function () {
   for (let i = 0; i < winCombs.length; i++) {
@@ -56,13 +76,14 @@ findWinner = function () {
         contain(a[1], symX) &&
         contain(a[2], symX)) 
         {
-      alert('Победитель ' + 'playerX');
+      alert('Победитель ' + playerX);
     } else if (
         contain(a[0], symO) &&
         contain(a[1], symO) &&
         contain(a[2], symO)
     ) {
-      alert('Победитель ' + 'playerO');
+      alert('Победитель ' + playerO);
     }
   }
 }
+
