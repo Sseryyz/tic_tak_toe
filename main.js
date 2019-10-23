@@ -9,10 +9,7 @@ let startTemplate, startContent,
     findWinner,
     move,
     eventTarget,
-    hideStartTemplate,
-    showGameTemplate,
     playerX, playerO;
-
 
 startTemplate = document.getElementById("start");
 startContent = startTemplate.content;
@@ -20,34 +17,32 @@ document.body.prepend(startContent);
 
 document.getElementById("welcomeForm")
     .addEventListener("submit", function(event) {
-      event.preventDefault();
-      playerX = document.getElementById('playerX').value;
-      playerO = document.getElementById('playerO').value;
+        event.preventDefault();
+        playerX = document.getElementById('playerX').value;
+        playerO = document.getElementById('playerO').value;
+
+        goToGame();
     });
 
 let goToGame = function() {
-  showGameTemplate();
   hideStartTemplate();
-}
-let hideWelcomeScreen;
-let displaySetting;
-hideStartTemplate = function() {
-  hideWelcomeScreen = document.getElementById('welcomeScreen');
-  displaySetting = hideWelcomeScreen.style.display = "none";
+  showGameTemplate();
 }
 
-showGameTemplate = function() {
+let hideStartTemplate = function() {
+  document.getElementById('welcomeScreen').style.display = "none";
+}
+
+let showGameTemplate = function() {
   gameTemplate = document.getElementById("game");
   gameContent = gameTemplate.content;
   document.body.appendChild(gameContent);
 
   document.getElementById("gameField").addEventListener("click", eventTarget);
 }
-
 const contain = function (index, sym) {
   return document.getElementsByClassName("block")[index].innerHTML === sym;
 }
-
 move = 0;
 
 eventTarget = function(event) {
