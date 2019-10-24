@@ -74,6 +74,16 @@ findWinner = function () {
   }
 }
 let showWinner = function () {
- document.getElementById('showWinner').style.display = "block";
+ document.getElementById("showWinner").style.display = "block";
 }
+// let msgWinnerX = function() {
+//   let textWinX = document.createTextNode(playerX);
+//   let winMsg = document.getElementById('showWinner');
+//   document.winMsg.append(textWinX);
+// }
+// let msgWinnerO = function() {
+//   let textWinO = document.createTextNode(playerO);
+//   let winMsg = document.getElementById("showWinner");
+//   document.winMsg.append(textWinO);
+// };
 
