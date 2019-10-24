@@ -29,6 +29,7 @@ let goToGame = function() {
   showGameTemplate();
 }
 
+
 let hideStartTemplate = function() {
   document.getElementById('welcomeScreen').style.display = "none";
 }
@@ -66,19 +67,13 @@ findWinner = function () {
     let a = winCombs[i];
     let symX = "x";
     let symO = "o";
-
-    if (contain(a[0], symX) &&
-        contain(a[1], symX) &&
-        contain(a[2], symX)) 
-        {
-      alert('Победитель ' + playerX);
-    } else if (
-        contain(a[0], symO) &&
-        contain(a[1], symO) &&
-        contain(a[2], symO)
-    ) {
-      alert('Победитель ' + playerO);
+    if (contain(a[0], symX) && contain(a[1], symX) && contain(a[2], symX) ||
+        contain(a[0], symO) && contain(a[1], symO) && contain(a[2], symO)) {
+      showWinner();
     }
   }
+}
+let showWinner = function () {
+ document.getElementById('showWinner').style.display = "block";
 }
 

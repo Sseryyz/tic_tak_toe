@@ -13,9 +13,9 @@
 
         <form method="get" id="welcomeForm">
           <label for="playerX">Игрок X:</label>
-          <input type="text" name="name" value="" id="playerX"/>
+          <input type="text" name="name" value="" id="playerX" required/>
           <label for="playerO">Игрок O:</label>
-          <input type="text" name="name" value="" id="playerO"/> <br />
+          <input type="text" name="name" value="" id="playerO" required/> <br />
           <button type="submit" id="submitBtn">Готово</button>
         </form>
       </div>
@@ -23,6 +23,7 @@
 
     <template class="game" id="game">
       <div class="container" id="container">
+        <p id="showWinner">Победитель</p>
         <div class="gameField" id="gameField">
           <div class="block" id="block"></div>
           <div class="block" id="block"></div>
