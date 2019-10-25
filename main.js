@@ -8,16 +8,17 @@ const winCombs = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+
+const size = 3;
+const symX = "x";
+const symO = "o";
+
 let move = 0;
 let playerX = "";
 let playerO = "";
 
-const symX = "x";
-const symO = "o";
-
-const startTemplate = document.getElementById("start");
-const startContent = startTemplate.content;
-document.body.prepend(startContent);
+const startTemplate = document.getElementById("start").content;
+document.body.prepend(startTemplate);
 
 document
   .getElementById("welcomeForm")
@@ -43,61 +44,47 @@ const showGameTemplate = function() {
   const gameContent = gameTemplate.content;
   document.body.appendChild(gameContent);
 
+  const cellTpl = document.getElementById("block").content;
+  for(let i=0; i< size*size; i++){
+    document.getElementById('gameField').prepend(cellTpl.cloneNode(true));
+  }
+
   document.getElementById("gameField").addEventListener("click", eventTarget);
 };
+
 const contain = function(index, sym) {
   return document.getElementsByClassName("block")[index].innerHTML === sym;
 };
 
 
 const eventTarget = function(event) {
-  if (event.target.innerHTML === symX) {
-    return;
-  } else if (event.target.innerHTML === symO) {
+  if ([symX, symO].includes(event.target.innerHTML)) {
     return;
   }
-  if (event.target.className === "block") {
-    if (move % 2 === 0) {
-      event.target.innerHTML = symX;
-    } else {
-      event.target.innerHTML = symO;
-    }
+
+  if (event.target.classList.contains("block")) {
+    event.target.innerHTML = move % 2 ? symO : symX;
     move++;
     findWinner();
   }
 };
 const findWinner = function() {
-  for (let i = 0; i < winCombs.length; i++) {
-    if (
-      contain(winCombs[i][0], symX) &&
-      contain(winCombs[i][1], symX) && 
-      contain(winCombs[i][2], symX)) 
-      {
-      msgWinnerX();
-    } else if (
-      contain(winCombs[i][0], symO) &&
-      contain(winCombs[i][1], symO) &&
-      contain(winCombs[i][2], symO)
-    ) {
-      msgWinnerO();
+  const players = [null, playerO,  playerX];
+
+  for (const combination of winCombs) {
+    const winner = players[combination.every((index) => contain(index, symO)) + combination.every((index) => contain(index, symX)) * 2];
+
+    if (winner) {
+      msgWinner(winner);
     }
   }
 };
-const msgWinnerX = function() {
+const msgWinner = function(name) {
   let paragraph = document.createElement("p");
   paragraph.className = "showWinner";
   paragraph.innerHTML =
     "Победитель " +
-    playerX +
-    '.</br>Чтобы сыграть еще раз, нажмите </br>"Начать заново."';
-  document.body.append(paragraph);
-};
-const msgWinnerO = function() {
-  let paragraph = document.createElement("p");
-  paragraph.className = "showWinner";
-  paragraph.innerHTML =
-    "Победитель " +
-    playerO +
+    name +
     '.</br>Чтобы сыграть еще раз, нажмите </br>"Начать заново."';
   document.body.append(paragraph);
 };

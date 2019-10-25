@@ -7,7 +7,7 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <template class="start" id="start">
+    <template id="start">
       <div class="welcomeScreen" id="welcomeScreen">
         <h1 class="welcome" id="welcome">Welcome!</h1>
 
@@ -21,20 +21,14 @@
       </div>
     </template>
 
-    <template class="game" id="game">
+    <template id="block">
+      <div class="block"></div>
+    </template>
+
+    <template id="game">
       <div class="container" id="container">
-        
-        <div class="gameField" id="gameField">
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-          <div class="block" id="block"></div>
-        </div>
+        <div class="gameField" id="gameField"></div>
+
         <button class="btn" id="gameBtn" onClick="location.reload()">
           Начать заново
         </button>
