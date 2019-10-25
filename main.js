@@ -74,7 +74,7 @@ const findWinner = function() {
     const winner = players[combination.every((index) => contain(index, symO)) + combination.every((index) => contain(index, symX)) * 2];
 
     if (winner) {
-      msgWinner(winner);
+      msgWinner(_.startCase(winner));
     }
   }
 };
