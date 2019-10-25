@@ -40,8 +40,7 @@ const hideStartTemplate = function() {
 };
 
 const showGameTemplate = function() {
-  const gameTemplate = document.getElementById("game");
-  const gameContent = gameTemplate.content;
+  const gameContent = document.getElementById("game").content;
   document.body.appendChild(gameContent);
 
   const cellTpl = document.getElementById("block").content;
@@ -80,11 +79,8 @@ const findWinner = function() {
   }
 };
 const msgWinner = function(name) {
-  let paragraph = document.createElement("p");
-  paragraph.className = "showWinner";
-  paragraph.innerHTML =
-    "Победитель " +
-    name +
-    '.</br>Чтобы сыграть еще раз, нажмите </br>"Начать заново."';
-  document.body.append(paragraph);
+  const msgTpl = document.getElementById('win-msg').content;
+  msgTpl.querySelector('.name').innerText = name;
+
+  document.body.append(msgTpl);
 };
