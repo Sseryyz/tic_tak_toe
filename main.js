@@ -8,20 +8,15 @@ const winCombs = [
   [0, 4, 8],
   [2, 4, 6]
 ];
-let startTemplate,
-  startContent,
-  gameTemplate,
-  gameContent,
-  findWinner,
-  move,
-  eventTarget,
-  playerX,
-  playerO;
+let move = 0;
+let playerX = "";
+let playerO = "";
+
 const symX = "x";
 const symO = "o";
 
-startTemplate = document.getElementById("start");
-startContent = startTemplate.content;
+const startTemplate = document.getElementById("start");
+const startContent = startTemplate.content;
 document.body.prepend(startContent);
 
 document
@@ -34,18 +29,18 @@ document
     goToGame();
   });
 
-let goToGame = function() {
+const goToGame = function() {
   hideStartTemplate();
   showGameTemplate();
 };
 
-let hideStartTemplate = function() {
+const hideStartTemplate = function() {
   document.getElementById("welcomeScreen").style.display = "none";
 };
 
-let showGameTemplate = function() {
-  gameTemplate = document.getElementById("game");
-  gameContent = gameTemplate.content;
+const showGameTemplate = function() {
+  const gameTemplate = document.getElementById("game");
+  const gameContent = gameTemplate.content;
   document.body.appendChild(gameContent);
 
   document.getElementById("gameField").addEventListener("click", eventTarget);
@@ -53,9 +48,9 @@ let showGameTemplate = function() {
 const contain = function(index, sym) {
   return document.getElementsByClassName("block")[index].innerHTML === sym;
 };
-move = 0;
 
-eventTarget = function(event) {
+
+const eventTarget = function(event) {
   if (event.target.innerHTML === symX) {
     return;
   } else if (event.target.innerHTML === symO) {
@@ -71,7 +66,7 @@ eventTarget = function(event) {
     findWinner();
   }
 };
-findWinner = function() {
+const findWinner = function() {
   for (let i = 0; i < winCombs.length; i++) {
     if (
       contain(winCombs[i][0], symX) &&
@@ -88,7 +83,7 @@ findWinner = function() {
     }
   }
 };
-let msgWinnerX = function() {
+const msgWinnerX = function() {
   let paragraph = document.createElement("p");
   paragraph.className = "showWinner";
   paragraph.innerHTML =
@@ -97,7 +92,7 @@ let msgWinnerX = function() {
     '.</br>Чтобы сыграть еще раз, нажмите </br>"Начать заново."';
   document.body.append(paragraph);
 };
-let msgWinnerO = function() {
+const msgWinnerO = function() {
   let paragraph = document.createElement("p");
   paragraph.className = "showWinner";
   paragraph.innerHTML =
