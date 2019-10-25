@@ -73,18 +73,16 @@ eventTarget = function(event) {
 };
 findWinner = function() {
   for (let i = 0; i < winCombs.length; i++) {
-    let a = winCombs[i];
-
     if (
-      contain(a[0], symX) &&
-      contain(a[1], symX) && 
-      contain(a[2], symX)) 
+      contain(winCombs[i][0], symX) &&
+      contain(winCombs[i][1], symX) && 
+      contain(winCombs[i][2], symX)) 
       {
       msgWinnerX();
     } else if (
-      contain(a[0], symO) &&
-      contain(a[1], symO) &&
-      contain(a[2], symO)
+      contain(winCombs[i][0], symO) &&
+      contain(winCombs[i][1], symO) &&
+      contain(winCombs[i][2], symO)
     ) {
       msgWinnerO();
     }

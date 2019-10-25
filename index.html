@@ -13,9 +13,9 @@
 
         <form method="get" id="welcomeForm">
           <label for="playerX">Игрок X:</label>
-          <input type="text" name="name" value="" id="playerX" pattern = "[A-Za-z]{1,32}" required/>
+          <input type="text" name="name" value="" id="playerX" pattern = "[\wА-Яа-я]{1,32}" required/>
           <label for="playerO">Игрок O:</label>
-          <input type="text" name="name" value="" id="playerO" pattern = "[A-Za-z]{1,32}" required/> <br />
+          <input type="text" name="name" value="" id="playerO" pattern = "[\wА-Яа-я]{1,32}" required/> <br />
           <button type="submit" id="submitBtn">Готово</button>
         </form>
       </div>
