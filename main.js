@@ -17,6 +17,8 @@ let startTemplate,
   eventTarget,
   playerX,
   playerO;
+const symX = "x";
+const symO = "o";
 
 startTemplate = document.getElementById("start");
 startContent = startTemplate.content;
@@ -54,16 +56,16 @@ const contain = function(index, sym) {
 move = 0;
 
 eventTarget = function(event) {
-  if (event.target.innerHTML === "x") {
+  if (event.target.innerHTML === symX) {
     return;
-  } else if (event.target.innerHTML === "o") {
+  } else if (event.target.innerHTML === symO) {
     return;
   }
   if (event.target.className === "block") {
     if (move % 2 === 0) {
-      event.target.innerHTML = "x";
+      event.target.innerHTML = symX;
     } else {
-      event.target.innerHTML = "o";
+      event.target.innerHTML = symO;
     }
     move++;
     findWinner();
@@ -72,8 +74,7 @@ eventTarget = function(event) {
 findWinner = function() {
   for (let i = 0; i < winCombs.length; i++) {
     let a = winCombs[i];
-    let symX = "x";
-    let symO = "o";
+
     if (
       contain(a[0], symX) &&
       contain(a[1], symX) && 
