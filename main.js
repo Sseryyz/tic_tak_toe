@@ -82,5 +82,7 @@ const msgWinner = function(name) {
   const msgTpl = document.getElementById('win-msg').content;
   msgTpl.querySelector('.name').innerText = name;
 
+  document.getElementById("gameField").style.display = "none";
+  document.getElementById("gameBtn").style.top = "250px";
   document.body.append(msgTpl);
 };
